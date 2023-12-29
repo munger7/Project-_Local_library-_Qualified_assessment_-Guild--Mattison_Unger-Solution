@@ -1,15 +1,32 @@
 function getTotalBooksCount(books) {
   // YOUR SOLUTION HERE
+  let totalBooksCount = books.length;
+  return totalBooksCount;
 }
 
 function getTotalAccountsCount(accounts) {
   // YOUR SOLUTION HERE
+  let totalAccountsCount = accounts.length;
+  return totalAccountsCount;
 }
 
 function getBooksBorrowedCount(books) {
   // YOUR SOLUTION HERE
   // Hint: You can use the [`filter()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) method here. 
   // If you get stuck, feel free to take a look at this repl.it: https://replit.com/@thinkful/getBooksBorrowedCount#index.js
+
+    //  step 1 - apply filter to all books
+  let booksBorrowedCount = books.filter((book) => {
+    //  step 2 - check if most recent borrow has been returned  
+    const mostRecentBorrow = book.borrows[0];
+    return mostRecentBorrow.returned === false;
+  });
+    // step 3 - count length of new array and return value
+  return booksBorrowedCount.length;
+
+  
+
+
 }
 
 // Tbis is a helper function that's called by other functions inside this file. You don't have to edit it.
